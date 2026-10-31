@@ -1,0 +1,27 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow"><title>실적 이미지 10/31 훈</title>
+<style>
+body{font-family:'Malgun Gothic',sans-serif;background:#f6f6f4;color:#37352f;margin:0;padding:24px}
+h1{font-size:20px;margin:0 0 4px} p{margin:0 0 16px;color:#787774}
+#all{font-size:15px;padding:8px 18px;border:0;border-radius:6px;background:#2383e2;color:#fff;cursor:pointer}
+#msg{margin-left:12px;color:#448361}
+.grid{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px}
+.card{background:#fff;border:1px solid #e3e2e0;border-radius:6px;padding:8px;width:300px}
+.card img{width:100%;display:block} .card a{font-size:14px;color:#37352f}
+</style></head><body>
+<h1>실적 이미지 10/31 훈</h1><p>1개 파일 · 크롬이 '여러 파일 다운로드'를 물으면 [허용]을 눌러 주세요</p>
+<button id="all">다시 받기</button><span id="msg"></span>
+<div class="grid"><div class="card"><img src="01.png" alt=""><a href="01.png" download="01_유나이티드제약(잠정).png">01_유나이티드제약(잠정).png</a></div></div>
+<script>
+const files = [["01.png", "01_유나이티드제약(잠정).png"]];
+const all = async () => {
+  for (const [src, name] of files) {
+    const a = document.createElement('a'); a.href = src; a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    await new Promise(r => setTimeout(r, 400));
+  }
+  document.getElementById('msg').textContent = files.length + '개 다운로드를 시작했습니다';
+};
+document.getElementById('all').onclick = all;
+window.addEventListener('load', all);   // 열자마자 바로 받기
+</script></body></html>
